@@ -3,7 +3,7 @@
 
 #include <iostream>
 #include "SnakeCode.h"
-#include "GameOver.h"
+#include "GlobalVariables.h"
 
 int main()
 {
@@ -11,7 +11,9 @@ int main()
 
 	while (!gameOver)
 	{
-
+		Draw();
+		Input();
+		Logic();
 	}
 }
 

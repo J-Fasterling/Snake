@@ -143,7 +143,7 @@
     <ClCompile Include="SnakeCode.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="GameOver.h" />
+    <ClInclude Include="GlobalVariables.h" />
     <ClInclude Include="SnakeCode.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
