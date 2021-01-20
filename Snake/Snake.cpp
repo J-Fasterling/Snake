@@ -2,6 +2,7 @@
 //
 
 #include <iostream>
+#include <Windows.h>
 #include "SnakeCode.h"
 #include "GlobalVariables.h"
 
@@ -14,6 +15,7 @@ int main()
 		Draw();
 		Input();
 		Logic();
+		Sleep(10);
 	}
 }
 

@@ -195,6 +195,16 @@ void Logic()
 		gameOver = true;
 	}
 
+
+	//Game Over wenn man sich selbst in den Schwanz beiﬂt
+	for (int i = 0; i < iTail; i++)
+	{
+		if (tailX[i] == x && tailY[i] == y)
+		{
+			gameOver = true;
+		}
+	}
+
 	//Beim essen einer Frucht Score erhˆhen und neue Frucht plaziernas
 	if (x == fruitX && y == fruitY)
 	{
