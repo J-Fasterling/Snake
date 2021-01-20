@@ -1,6 +1,7 @@
 #include "SnakeCode.h"
 #include "GlobalVariables.h"
 #include <iostream>
+#include <conio.h>
 
 using namespace std;
 
@@ -85,16 +86,87 @@ void Draw()
 	{
 		cout << '#';
 	}
+
+	cout << endl;
+	cout << "Score: " << score << endl;
 }
 
-
-void Logic()
-{
-
-}
 
 
 void Input()
 {
+	//Kontrollieren, ob Eingabe auf Tastatur getätigt wurde
+	if (_kbhit())
+	{
+		//Richtung bestimmen
+		switch (_getch())
+		{
+		case 'w':
+			dir = UP;
+			break;
 
+		case 'a':
+			dir = LEFT;
+			break;
+
+		case 's':
+			dir = DOWN;
+			break;
+
+		case 'd':
+			dir = RIGHT;
+			break;
+
+		case 'q':
+			gameOver = true;
+			break;
+
+		default:
+			break;
+		}
+	}
 }
+
+
+
+
+void Logic()
+{
+	//Schlange bewegen
+	switch (dir)
+	{
+	case LEFT:
+		x--;
+		break;
+
+	case RIGHT:
+		x++;
+		break;
+
+	case UP:
+		y--;
+		break;
+
+	case DOWN:
+		y++;
+		break;
+
+	default:
+		break;
+	}
+
+	//Game Over, wenn man über den Spielfeldrand hinaus geht
+	if (x > width || x < 0 || y > height || y < 0)
+	{
+		gameOver = true;
+	}
+
+	//Beim essen einer Frucht Score erhöhen und neue Frucht plaziernas
+	if (x == fruitX && y == fruitY)
+	{
+		score += 10;
+		fruitX = rand() % width;
+		fruitY = rand() % height;
+	}
+}
+
