@@ -20,3 +20,9 @@ extern int score;
 //Bewegungsrichtungen der Schlange
 enum eDirection { STOP = 0, LEFT, RIGHT, UP, DOWN};
 extern eDirection dir;
+
+//Koordinaten des Schwanz
+extern int tailX[100], tailY[100];
+
+//Länge des Schwanz
+extern int iTail;

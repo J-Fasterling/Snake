@@ -11,6 +11,8 @@ bool gameOver = false;
 int x, y;
 int fruitX, fruitY;
 int score;
+int tailX[100], tailY[100];
+int iTail;
 eDirection dir;
 
 void Setup()
@@ -69,7 +71,20 @@ void Draw()
 
 			else
 			{
-				cout << " ";
+				bool print = false;
+				for (int k = 0; k < iTail; k++)
+				{
+					//
+					if (tailX[k] == j && tailY[k] == i)
+					{
+						cout << "o";
+						print = true;
+					}
+				}
+				if (!print)
+				{
+					cout << " ";
+				}
 			}
 
 			//Rechter Spielfeldrand
@@ -132,6 +147,25 @@ void Input()
 
 void Logic()
 {
+	int prevX = tailX[0];
+	int prevY = tailY[0];
+	int prev2X, prev2Y;
+
+	//Anfangswerte des Schwanz dem Kopf zuordnen
+	tailX[0] = x;
+	tailY[0] = y;
+
+	//Schwanz in Reihenfolge zuordnen
+	for (int i = 1; i < iTail; i++)
+	{
+		prev2X = tailX[i];
+		prev2Y = tailY[i];
+		tailX[i] = prevX;
+		tailY[i] = prevY;
+		prevX = prev2X;
+		prevY = prev2Y;
+	}
+
 	//Schlange bewegen
 	switch (dir)
 	{
@@ -167,6 +201,7 @@ void Logic()
 		score += 10;
 		fruitX = rand() % width;
 		fruitY = rand() % height;
+		iTail++;
 	}
 }
 
