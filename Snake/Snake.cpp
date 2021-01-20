@@ -2,9 +2,16 @@
 //
 
 #include <iostream>
+#include "SnakeCode.h"
+#include "GameOver.h"
 
 int main()
 {
-    std::cout << "Hello World!\n";
+	Setup();
+
+	while (!gameOver)
+	{
+
+	}
 }
 
