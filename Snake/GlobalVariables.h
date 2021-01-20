@@ -1,21 +1,22 @@
 #pragma once
 
+
 //Game Over
-extern bool gameOver = false;
+extern bool gameOver;
 
 //Dimensionen des Bildschirms
-const int width = 20;
-const int height = 20;
+extern const int width;
+extern const int height;
 
 //Variablen für den Kopf der Schlange
-int x, y;
+extern int x, y;
 
 //Variable für die Früchte
-int fruitX, fruitY;
+extern int fruitX, fruitY;
 
 //Score
-int score;
+extern int score;
 
 //Bewegungsrichtungen der Schlange
 enum eDirection { STOP = 0, LEFT, RIGHT, UP, DOWN};
-eDirection dir;
+extern eDirection dir;

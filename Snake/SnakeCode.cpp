@@ -4,6 +4,13 @@
 
 using namespace std;
 
+const int width = 20;
+const int height = 20;
+bool gameOver = false;
+int x, y;
+int fruitX, fruitY;
+int score;
+eDirection dir;
 
 void Setup()
 {
@@ -25,7 +32,42 @@ void Setup()
 
 void Draw()
 {
-	
+	//Konsole "clearen"
+	system("cls");
+
+	//Obere Grenze des Spielfelds zeichnen
+	for (int i = 0; i < width + 2; i++)
+	{
+		cout << "#";
+	}
+	cout << endl;
+
+	//Seitlichen Grenzen des Spielfelds zeichnen
+	for (int i = 0; i < height; i++)
+	{
+		for (int j = 0; j < width; j++)
+		{
+			//Kontrollieren, ob man sich am Spielfeldrand befindet
+			if (j == 0)
+			{
+				cout << "#";
+			}
+
+			cout << " ";
+
+			if (j == width - 1)
+			{
+				cout << "#";
+			}
+		}
+		cout << endl;
+	}
+
+	//Untere Grenze des Spielfelds zeichnen
+	for (int i = 0; i < width + 2; i++)
+	{
+		cout << '#';
+	}
 }
 
 
