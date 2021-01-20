@@ -48,13 +48,30 @@ void Draw()
 		for (int j = 0; j < width; j++)
 		{
 			//Kontrollieren, ob man sich am Spielfeldrand befindet
+			//Linker Spielfeldrand
 			if (j == 0)
 			{
 				cout << "#";
 			}
 
-			cout << " ";
+			//Schlangenkopf erzeugen
+			if (i == y && j == x)
+			{
+				cout << "0";
+			}
 
+			//Frucht erzeugen
+			else if (i == fruitX && j == fruitX)
+			{
+				cout << "X";
+			}
+
+			else
+			{
+				cout << " ";
+			}
+
+			//Rechter Spielfeldrand
 			if (j == width - 1)
 			{
 				cout << "#";
